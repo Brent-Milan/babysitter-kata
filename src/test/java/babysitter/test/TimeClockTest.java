@@ -2,7 +2,8 @@ package babysitter.test;
 
 import static org.junit.Assert.*;
 
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -19,39 +20,25 @@ public class TimeClockTest {
 	}
 
 	@Test
-	public void hoursArrayContainsCorrectValues() {
-		//arrange
-		int[] hours = classUnderTest.getHours();
-		//assert
-		assertArrayEquals(new int[] { 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3 }, hours);
-	}
-	
-	@Test
-	public void payRatesArrayContainsCorrectValues() {
-		//arrange
-		int[] payRates = classUnderTest.getPayRates(); 
-		//assert
-		assertArrayEquals(new int[] { 12, 12, 12, 12, 8, 8, 8, 16, 16, 16, 16 }, payRates);	 
-	}
-	
-	@Test
-	public void shouldReturnTotalAmountToInvoiceForFullShift() {
-		//act
-		int result = 136;
-		//assert
-		assertEquals(result, classUnderTest.calcFullShift());	
-	}
-	
-	@Test
-	public void shouldAppendDateToFileName() {
-		String date = "08.22.2017";
-		String result = "babysitting-hours.08.22.2017";
+	public void testToAssertMapValuesAndSize() {
 		
-		assertEquals(result, classUnderTest.generateFileName(date));
+		Map<Integer, Double> map = classUnderTest.getMap();
+		classUnderTest.populateMap();
+		
+		Map<Integer, Double> expected = new HashMap<Integer, Double>();
+			expected.put(5, 12.00);
+			expected.put(6, 12.00);
+			expected.put(7, 12.00);
+			expected.put(8, 12.00);
+			expected.put(9, 8.00);
+			expected.put(10, 8.00);
+			expected.put(11, 8.00);
+			expected.put(12, 16.00);
+			expected.put(1, 16.00);
+			expected.put(2, 16.00);
+			expected.put(3, 16.00);
+			
+		assertEquals(expected, map);
+			
 	}
-		
-		
-		
-	
-
 }

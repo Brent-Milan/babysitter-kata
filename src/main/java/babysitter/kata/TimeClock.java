@@ -1,41 +1,29 @@
 package babysitter.kata;
 
-public class TimeClock {
-	
-	//These are two parallel arrays with corresponding values at matching indexes
-	private int[] hours = { 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3 };
-	
-	private int[] payRates = { 12, 12, 12, 12, 8, 8, 8, 16, 16, 16, 16 };
-	
-	//calculates total billable pay for a maximum shift length and returns as variable
-	public int calcFullShift() {
-		int billablePay = 0;
-		for(int index = 0; index < payRates.length; index++) {
-			int billableHour = 1;
-			int currentPayRate = payRates[index];
-			billablePay += (billableHour * currentPayRate);
-		}
-		return billablePay;
-	}
-	
-	public String generateFileName(String date) {
-		String fileName = "babysitting-hours." + date;
-		return fileName;
-		
-	}
-	
-/****************************
-	 * Getter Methods
- ****************************/
-	public int[] getHours() {
-		return hours;
-	}
-	
-	public int[] getPayRates() {
-		return payRates;
-	}
-	
-} // end class
-	
-	
+import java.util.HashMap;
+import java.util.Map;
 
+public class TimeClock {
+
+	Map<Integer, Double> map = new HashMap<Integer, Double>();
+	
+	public void populateMap() {
+		map.put(5, 12.00);
+		map.put(6, 12.00);
+		map.put(7, 12.00);
+		map.put(8, 12.00);
+		map.put(9, 8.00);
+		map.put(10, 8.00);
+		map.put(11, 8.00);
+		map.put(12, 16.00);
+		map.put(1, 16.00);
+		map.put(2, 16.00);
+		map.put(3, 16.00);
+	
+	}
+	
+	public Map<Integer, Double> getMap() {
+		return map;
+	}
+	
+}
