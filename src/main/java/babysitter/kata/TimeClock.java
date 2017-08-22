@@ -7,7 +7,7 @@ public class TimeClock {
 	
 	private int[] payRates = { 12, 12, 12, 12, 8, 8, 8, 16, 16, 16, 16 };
 	
-	public int fullShift() {
+	public int calcFullShift() {
 		int billablePay = 0;
 		for(int index = 0; index < payRates.length; index++) {
 			int billableHour = 1;

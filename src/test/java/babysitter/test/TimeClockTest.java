@@ -43,7 +43,7 @@ public class TimeClockTest {
 		int result = 136;
 		
 		//assert
-		assertEquals(result, classUnderTest.fullShift());
+		assertEquals(result, classUnderTest.calcFullShift());
 		
 		
 	}
