@@ -1,38 +1,47 @@
 package babysitter.kata;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
 
 public class TimeClock {
-
-	Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 	
-	//populates map with current hours and rates for service
-	public void populateMap() {
-		map.put(5, 12);
-		map.put(6, 12);
-		map.put(7, 12);
-		map.put(8, 12);
-		map.put(9, 8);
-		map.put(10, 8);
-		map.put(11, 8);
-		map.put(12, 16);
-		map.put(1, 16);
-		map.put(2, 16);
-		map.put(3, 16);
+	private int[] hours = { 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3 };
 	
-	}
+	private int[] payRates = { 12, 12, 12, 12, 8, 8, 8, 16, 16, 16, 16 };
 	
+	//calculates total billable pay for a maximum shift length and returns as variable
 	public int calcFullShift() {
-		int total = 0;
-		for(double current: map.values()) {
-			total += current;
+		int billablePay = 0;
+		for(int index = 0; index < payRates.length; index++) {
+			int billableHour = 1;
+			int currentPayRate = payRates[index];
+			billablePay += (billableHour * currentPayRate);
 		}
-		return total; 
-	} 
-	
-	public Map<Integer, Integer> getMap() {
-		return map;
+		return billablePay;
+	}
+
+	public int[] copyArrayAtIndexes(int startCopy, int endCopy) {
+		int[] arrayCopy = Arrays.copyOfRange(hours, startCopy, endCopy);
+		return arrayCopy;
 	}
 	 
-}
+	public String generateFileName(String date) {
+		String fileName = "babysitting-hours." + date;
+		return fileName;
+		
+	}
+	
+/****************************
+	 * Getter Methods
+ ****************************/
+	public int[] getHours() {
+		return hours;
+	}
+	
+	public int[] getPayRates() {
+		return payRates;
+	}
+	
+} // end class
+	
+	 
+

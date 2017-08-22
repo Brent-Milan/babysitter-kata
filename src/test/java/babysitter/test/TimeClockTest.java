@@ -2,14 +2,12 @@ package babysitter.test;
 
 import static org.junit.Assert.*;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.hamcrest.collection.IsMapContaining;
+import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 
 import babysitter.kata.TimeClock;
+import babysitter.kata.TimeClockDepricated;
 
 public class TimeClockTest {
 
@@ -21,38 +19,65 @@ public class TimeClockTest {
 	}
 
 	@Test
-	public void testToAssertMapValuesAndSize() {
-		
-		Map<Integer, Integer> map = classUnderTest.getMap();
-		classUnderTest.populateMap();
-		
-		Map<Integer, Integer> expected = new HashMap<Integer, Integer>();
-			expected.put(5, 12);
-			expected.put(6, 12);
-			expected.put(7, 12);
-			expected.put(8, 12);
-			expected.put(9, 8);
-			expected.put(10, 8);
-			expected.put(11, 8);
-			expected.put(12, 16);
-			expected.put(1, 16);
-			expected.put(2, 16);
-			expected.put(3, 16);
-			
-		assertEquals(expected, map);
-		
-		assertEquals(map.size(), expected.size());
-			
+	public void hoursArrayContainsCorrectValues() {
+		//arrange
+		int[] hours = classUnderTest.getHours();
+		//assert
+		assertArrayEquals(new int[] { 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3 }, hours);
+	}
+	
+	@Test 
+	public void payRatesArrayContainsCorrectValues() {
+		//arrange
+		int[] payRates = classUnderTest.getPayRates(); 
+		//assert
+		assertArrayEquals(new int[] { 12, 12, 12, 12, 8, 8, 8, 16, 16, 16, 16 }, payRates);	 
 	}
 	
 	@Test
-	public void shouldReturnTotalInvoiceAmountForAFullShift() {
-		Map<Integer, Integer> map = classUnderTest.getMap();
-		classUnderTest.populateMap();
-		
+	public void shouldReturnTotalAmountToInvoiceForFullShift() {
+		//act
 		int result = 136;
-		
-		assertEquals(result, classUnderTest.calcFullShift());
+		//assert
+		assertEquals(result, classUnderTest.calcFullShift());	
 	}
+	
+	@Test
+	public void shouldAppendDateToFileName() {
+		String date = "08.22.2017";
+		String result = "babysitting-hours.08.22.2017";
+		
+		assertEquals(result, classUnderTest.generateFileName(date));
+		
+	}
+	
+	@Test 
+	public void shouldCopyArrayBetweenGivenIndexes() {
+		int startCopyAtIndex = 0;
+		int endCopyAtIndex = 5;
+		
+		int[] result = { 5, 6, 7, 8, 9};
+		
+		assertArrayEquals(result, classUnderTest.copyArrayAtIndexes(startCopyAtIndex, endCopyAtIndex));
+	}
+		
 
-}	
+	
+/***
+ * Saving for later. Make tests for partial shifts and converting user input for hours to related index first
+ ***/	
+	
+	
+//	@Test
+//	public void shouldGenerateFileNameThenCalculateBillableHoursAndLogEverythingToFile() {
+//		String date = "08.22.2017";
+//		int startTime = 5;
+//		int endTime = 1;
+//		
+//	}
+		
+		
+		
+	
+
+}
