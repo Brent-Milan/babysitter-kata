@@ -7,7 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import babysitter.kata.TimeClock;
-import babysitter.kata.TimeClockDepricated;
 
 public class TimeClockTest {
 
@@ -56,7 +55,7 @@ public class TimeClockTest {
 		int startCopyAtIndex = 0;
 		int endCopyAtIndex = 5;
 		
-		int[] result = { 5, 6, 7, 8, 9};
+		int[] result = { 12, 12, 12, 12, 8};
 		
 		assertArrayEquals(result, classUnderTest.copyArrayAtIndexes(startCopyAtIndex, endCopyAtIndex));
 	}
@@ -68,7 +67,38 @@ public class TimeClockTest {
 		int result = 0;
 		
 		assertEquals(result, classUnderTest.convertToTimelineIndex(startTime));
+		
+		startTime = 6;
+		
+		result = 1;
+		
+		assertEquals(result, classUnderTest.convertToTimelineIndex(startTime));
+		
+		startTime = 98;
+		
+		result = 99;
+		
+		assertEquals(result, classUnderTest.convertToTimelineIndex(startTime));	
 	}
+	
+//	@Test 
+//	public void shouldUsePreviousMethodsToReturnInoviceAmountForPartialShift() {
+//		int startTime = 5;
+//		int endTime = 9;
+//		
+//		int startTimeIndex = classUnderTest.convertToTimelineIndex(startTime);
+//		int endTimeIndex = classUnderTest.convertToTimelineIndex(endTime);
+//		
+//		int[] array = classUnderTest.copyArrayAtIndexes(startTimeIndex, endTimeIndex);
+//		
+//		for(int index = 0; array.length; index++) {
+//			int billableHour = 1;
+//			int currentPayRate = payRates[index];
+//			billablePay += (billableHour * currentPayRate);
+//		}
+//		
+//		assertArrayEquals(result, classUnderTest.calcPartialShift()
+//	}
 		
 
 	

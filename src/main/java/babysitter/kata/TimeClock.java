@@ -20,9 +20,9 @@ public class TimeClock {
 	}
 
 	public int[] copyArrayAtIndexes(int startCopy, int endCopy) {
-		int[] arrayCopy = Arrays.copyOfRange(hours, startCopy, endCopy);
+		int[] arrayCopy = Arrays.copyOfRange(payRates, startCopy, endCopy);
 		return arrayCopy;
-	}
+	} 
 	
 	public int convertToTimelineIndex(int time) {
 		switch(time) {
@@ -51,7 +51,9 @@ public class TimeClock {
 			default:
 				return 99;   
 		}
-	}
+	} 
+	
+	//public int calcPartialShift()
 	 
 	public String generateFileName(String date) {
 		String fileName = "babysitting-hours." + date;
