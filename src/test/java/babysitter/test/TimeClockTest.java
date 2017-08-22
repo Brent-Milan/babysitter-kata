@@ -60,6 +60,15 @@ public class TimeClockTest {
 		
 		assertArrayEquals(result, classUnderTest.copyArrayAtIndexes(startCopyAtIndex, endCopyAtIndex));
 	}
+	
+	@Test
+	public void shouldConvertStartTimeToRelevantIndexInHoursArray() {
+		int startTime = 5;
+		
+		int result = 0;
+		
+		assertEquals(result, classUnderTest.convertToTimelineIndex(startTime));
+	}
 		
 
 	
