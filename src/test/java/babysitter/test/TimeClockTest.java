@@ -2,6 +2,8 @@ package babysitter.test;
 
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,8 +19,14 @@ public class TimeClockTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void hoursArrayContainsCorrectValues() {
+		int[] hours = classUnderTest.getHours();
+		
+		assertArrayEquals(new int[] {5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3}, hours);
 	}
+		
+		
+		
+	
 
 }
