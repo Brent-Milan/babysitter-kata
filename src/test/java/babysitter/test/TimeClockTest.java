@@ -81,42 +81,25 @@ public class TimeClockTest {
 		assertEquals(result, classUnderTest.convertToTimelineIndex(startTime));	
 	}
 	
-//	@Test 
-//	public void shouldUsePreviousMethodsToReturnInoviceAmountForPartialShift() {
-//		int startTime = 5;
-//		int endTime = 9;
-//		
-//		int startTimeIndex = classUnderTest.convertToTimelineIndex(startTime);
-//		int endTimeIndex = classUnderTest.convertToTimelineIndex(endTime);
-//		
-//		int[] array = classUnderTest.copyArrayAtIndexes(startTimeIndex, endTimeIndex);
-//		
-//		for(int index = 0; array.length; index++) {
-//			int billableHour = 1;
-//			int currentPayRate = payRates[index];
-//			billablePay += (billableHour * currentPayRate);
-//		}
-//		
-//		assertArrayEquals(result, classUnderTest.calcPartialShift()
-//	}
+	@Test 
+	public void shouldUsePreviousMethodsToReturnInoviceAmountForPartialShift() {
+		int startTime = 5;
+		int endTime = 9;
 		
-
-	
-/***
- * Saving for later. Make tests for partial shifts and converting user input for hours to related index first
- ***/	
-	
-	
-//	@Test
-//	public void shouldGenerateFileNameThenCalculateBillableHoursAndLogEverythingToFile() {
-//		String date = "08.22.2017";
-//		int startTime = 5;
-//		int endTime = 1;
-//		
-//	}
+		int startTimeIndex = classUnderTest.convertToTimelineIndex(startTime);
+		int endTimeIndex = classUnderTest.convertToTimelineIndex(endTime);
+		
+		int[] copiedPayRates = classUnderTest.copyArrayAtIndexes(startTimeIndex, endTimeIndex);
+		
+		int result = 48;
+			
+		assertEquals(result, classUnderTest.calcPartialShift(startTime, endTime));
+	}
 		
 		
-		
-	
-
 }
+				
+		
+	
+
+

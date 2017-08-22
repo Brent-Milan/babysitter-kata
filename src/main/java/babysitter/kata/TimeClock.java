@@ -17,7 +17,7 @@ public class TimeClock {
 			billablePay += (billableHour * currentPayRate);
 		}
 		return billablePay;
-	}
+	} 
 
 	public int[] copyArrayAtIndexes(int startCopy, int endCopy) {
 		int[] arrayCopy = Arrays.copyOfRange(payRates, startCopy, endCopy);
@@ -53,7 +53,20 @@ public class TimeClock {
 		}
 	} 
 	
-	//public int calcPartialShift()
+	public int calcPartialShift(int startTime, int endTime) {
+		int startTimeIndex = convertToTimelineIndex(startTime);
+		int endTimeIndex = convertToTimelineIndex(endTime);
+		
+		int[] copiedPayRates = copyArrayAtIndexes(startTimeIndex, endTimeIndex);
+		
+		int invoiceAmount = 0;
+		for(int index = 0; index < copiedPayRates.length; index++) {
+			int billableHour = 1;
+			int currentPayRate = copiedPayRates[index];
+			invoiceAmount += (billableHour * currentPayRate);
+		}
+		return invoiceAmount;
+	} 
 	 
 	public String generateFileName(String date) {
 		String fileName = "babysitting-hours." + date;
