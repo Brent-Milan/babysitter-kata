@@ -20,32 +20,34 @@ public class TimeClockTest {
 
 	@Test
 	public void hoursArrayContainsCorrectValues() {
+		//arrange
 		int[] hours = classUnderTest.getHours();
-		
-		assertArrayEquals(new int[] {5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3}, hours);
+		//assert
+		assertArrayEquals(new int[] { 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3 }, hours);
 	}
 	
 	@Test
 	public void payRatesArrayContainsCorrectValues() {
+		//arrange
 		int[] payRates = classUnderTest.getPayRates(); 
-			
-		assertArrayEquals(new int[] { 12, 12, 12, 12, 8, 8, 8, 16, 16, 16, 16 }, payRates);
-		 
+		//assert
+		assertArrayEquals(new int[] { 12, 12, 12, 12, 8, 8, 8, 16, 16, 16, 16 }, payRates);	 
 	}
 	
 	@Test
 	public void shouldReturnTotalAmountToInvoiceForFullShift() {
-//		//arrange
-//		int firstBillableHour = 5;
-//		int finalBillableHour = 4;
-		
 		//act
 		int result = 136;
-		
 		//assert
-		assertEquals(result, classUnderTest.calcFullShift());
+		assertEquals(result, classUnderTest.calcFullShift());	
+	}
+	
+	@Test
+	public void shouldAppendDateToFileName() {
+		String date = "08.22.2017";
+		String result = "babysitting-hours.08.22.2017";
 		
-		
+		assertEquals(result, classUnderTest.generateFileName(date));
 	}
 		
 		

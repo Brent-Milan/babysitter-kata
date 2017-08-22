@@ -7,6 +7,7 @@ public class TimeClock {
 	
 	private int[] payRates = { 12, 12, 12, 12, 8, 8, 8, 16, 16, 16, 16 };
 	
+	//calculates total billable pay for a maximum shift length and returns as variable
 	public int calcFullShift() {
 		int billablePay = 0;
 		for(int index = 0; index < payRates.length; index++) {
@@ -17,10 +18,15 @@ public class TimeClock {
 		return billablePay;
 	}
 	
+	public String generateFileName(String date) {
+		String fileName = "babysitting-hours." + date;
+		return fileName;
+		
+	}
 	
-	
-	
-	
+/****************************
+	 * Getter Methods
+ ****************************/
 	public int[] getHours() {
 		return hours;
 	}
@@ -28,7 +34,8 @@ public class TimeClock {
 	public int[] getPayRates() {
 		return payRates;
 	}
-}
+	
+} // end class
 	
 	
 
