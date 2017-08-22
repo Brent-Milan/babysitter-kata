@@ -24,6 +24,14 @@ public class TimeClockTest {
 		
 		assertArrayEquals(new int[] {5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3}, hours);
 	}
+	
+	@Test
+	public void payRatesArrayContainsCorrectValues() {
+		int[] payRates = classUnderTest.getPayRates(); 
+			
+		assertArrayEquals(new int[] { 12, 12, 12, 12, 12, 8, 8, 8, 16, 16, 16 }, payRates);
+		 
+	}
 		
 		
 		
