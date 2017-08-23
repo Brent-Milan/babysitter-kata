@@ -10,13 +10,13 @@ public class TimeClock {
 	
 	//calculates total billable pay for a maximum shift length and returns as variable
 	public int calcFullShift() {
-		int billablePay = 0;
+		int invoiceAmount = 0;
 		for(int index = 0; index < payRates.length; index++) {
 			int billableHour = 1;
 			int currentPayRate = payRates[index];
-			billablePay += (billableHour * currentPayRate);
+			invoiceAmount += (billableHour * currentPayRate);
 		}
-		return billablePay;
+		return invoiceAmount;
 	} 
 
 	public int[] copyArrayAtIndexes(int startCopy, int endCopy) {
@@ -69,7 +69,7 @@ public class TimeClock {
 	} 
 	 
 	public String generateFileName(String date) {
-		String fileName = "babysitting-hours." + date;
+		String fileName = "babysitting-invoice." + date;
 		return fileName;
 		
 	}
