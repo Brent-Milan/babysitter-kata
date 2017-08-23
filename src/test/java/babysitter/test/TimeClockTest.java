@@ -44,7 +44,7 @@ public class TimeClockTest {
 	@Test
 	public void shouldAppendDateToFileName() {
 		String date = "08.22.2017";
-		String result = "babysitting-invoice.08.22.2017";
+		String result = "babysitting-invoice_08.22.2017.text";
 		
 		assertEquals(result, classUnderTest.generateFileName(date));
 		
@@ -100,15 +100,15 @@ public class TimeClockTest {
 	public void shouldGenerateAppendedFileNameAndLogCalculatedInvoiceAmountToHardDrive() {
 		String date = "08.23.2017";
 
-		String appendedFileName = "babysitting-invoice.08.23.2017";
+		String appendedFileName = "babysitting-invoice_08.23.2017.text";
 		int invoiceAmount = 136;
 		String result = "08.23.2017: 11 hours, 136 dollars"; 
 		
 		assertEquals(appendedFileName, classUnderTest.generateFileName(date));
 		assertEquals(invoiceAmount, classUnderTest.calcFullShift());
-		assertEquals(result, classUnderTest.nameFileAndLog());		
+//		assertEquals(result, classUnderTest.logInvoiceFullShift());		
 	}
-}
+} 
 				
 		
 	

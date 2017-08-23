@@ -1,5 +1,8 @@
 package babysitter.kata;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
  
 public class TimeClock {
@@ -69,9 +72,17 @@ public class TimeClock {
 	} 
 	 
 	public String generateFileName(String date) {
-		String fileName = "babysitting-invoice." + date;
-		return fileName;
+		String fileName = "babysitting-invoice_" + date + ".text";
+		return fileName;	
+	}
+	
+	public void logInvoiceFullShift(String date) throws IOException {
+		String appendedFileName = generateFileName(date);
+		int invoiceAmount = calcFullShift();
 		
+		PrintWriter fileWriter = new PrintWriter(new FileWriter(appendedFileName));
+		fileWriter.println(date + ": 11 hours, " + invoiceAmount + " dollars");
+		fileWriter.close();
 	}
 	
 /****************************
