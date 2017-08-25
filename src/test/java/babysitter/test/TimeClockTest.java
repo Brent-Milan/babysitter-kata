@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import babysitter.kata.TimeClock;
 
-public class TimeClockTest {
+public class TimeClockTest { 
 
 	private TimeClock classUnderTest;
 	
@@ -85,15 +85,17 @@ public class TimeClockTest {
 	public void shouldUsePreviousMethodsToReturnInoviceAmountForPartialShift() {
 		int startTime = 5;
 		int endTime = 9;
+		int bedTime = 10;
+		
 		
 		int startTimeIndex = classUnderTest.convertToTimelineIndex(startTime);
 		int endTimeIndex = classUnderTest.convertToTimelineIndex(endTime);
 		
-		int[] copiedPayRates = classUnderTest.copyArrayAtIndexes(startTimeIndex, endTimeIndex);
+		int[] copiedPayRates = classUnderTest.copyArrayAtIndexes(startTimeIndex, endTimeIndex, 10);
 		
 		int result = 48;
 			
-		assertEquals(result, classUnderTest.calcPartialShift(startTime, endTime));
+		assertEquals(result, classUnderTest.calcPartialShift(startTime, endTime, bedTime));
 	}
 		
 	@Test
@@ -116,7 +118,7 @@ public class TimeClockTest {
 		int[] result = { 12, 12, 12, 12, 12, 8, 8, 16, 16, 16, 16 };
 		
 		assertArrayEquals(result, classUnderTest.newBedtime(10));
-	} 
+	}  
 }
 				
 		

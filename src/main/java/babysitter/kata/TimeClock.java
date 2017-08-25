@@ -7,11 +7,31 @@ import java.util.Arrays;
  
 public class TimeClock {
 	
-	private int[] hours = 		{ 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3 };
+	private int[] hours = { 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3 };
 	
-	private int[] payRates = 	 { 12, 12, 12, 12, 8, 8, 8, 16, 16, 16, 16 };
+	private int[] payRates = new int[11];
 	
-	//calculates total billable pay for a maximum shift length and returns as variable
+	
+	//populates int[] payRates based on given bedtime
+	public int[] newBedtime(int newBedtime) {
+		int[] newPayRates = new int[11];
+		int hour = 5;
+		for(int index = 0; index <= 10; index++) {
+			if(hour >= 12) {
+				newPayRates[index] = 16;
+				hour++;
+			} else if(hour < newBedtime) {
+				newPayRates[index] = 12;
+				hour++;
+			} else if(hour >= newBedtime) {
+				newPayRates[index] = 8;
+				hour++;
+			}
+		}
+		return newPayRates;
+	}
+	
+	//calculates total invoice amount for a maximum shift length and returns as variable
 	public int calcFullShift() {
 		int invoiceAmount = 0;
 		for(int index = 0; index < payRates.length; index++) {
@@ -22,10 +42,11 @@ public class TimeClock {
 		return invoiceAmount;
 	} 
 
-	public int[] copyArrayAtIndexes(int startCopy, int endCopy) {
+	public int[] copyArrayAtIndexes(int startCopy, int endCopy, int bedTime) {
+		int[] payRates = newBedtime(10);
 		int[] arrayCopy = Arrays.copyOfRange(payRates, startCopy, endCopy);
 		return arrayCopy;
-	} 
+	}  
 	
 	public int convertToTimelineIndex(int time) {
 		switch(time) {
@@ -56,18 +77,18 @@ public class TimeClock {
 		}
 	} 
 	
-	public int calcPartialShift(int startTime, int endTime) {
+	public int calcPartialShift(int startTime, int endTime, int bedTime) {
 		int startTimeIndex = convertToTimelineIndex(startTime);
 		int endTimeIndex = convertToTimelineIndex(endTime);
 		
-		int[] copiedPayRates = copyArrayAtIndexes(startTimeIndex, endTimeIndex);
+		int[] copiedPayRates = copyArrayAtIndexes(startTimeIndex, endTimeIndex, bedTime);
 		
 		int invoiceAmount = 0;
 		for(int index = 0; index < copiedPayRates.length; index++) {
 			int billableHour = 1;
 			int currentPayRate = copiedPayRates[index];
 			invoiceAmount += (billableHour * currentPayRate);
-		}
+		} 
 		return invoiceAmount;
 	} 
 	 
@@ -89,23 +110,6 @@ public class TimeClock {
 			} 
 	} 
 	
-	public int[] newBedtime(int newBedtime) {
-		int[] newPayRates = new int[11];
-		int hour = 5;
-		for(int index = 0; index <= 10; index++) {
-			if(hour >= 12) {
-				newPayRates[index] = 16;
-				hour++;
-			} else if(hour < newBedtime) {
-				newPayRates[index] = 12;
-				hour++;
-			} else if(hour >= newBedtime) {
-				newPayRates[index] = 8;
-				hour++;
-			}
-		}
-		return newPayRates;
-	}    
 	
 /****************************
 	 * Getter Methods

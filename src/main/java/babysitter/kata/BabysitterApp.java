@@ -6,7 +6,7 @@ public class BabysitterApp {
 
 		TimeClock clock = new TimeClock();
 		
-		System.out.println(clock.newBedtime(10));
+		
 		
 
 	}
