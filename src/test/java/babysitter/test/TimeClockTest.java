@@ -108,7 +108,16 @@ public class TimeClockTest {
 		assertEquals(invoiceAmount, classUnderTest.calcFullShift());
 //		assertEquals(result, classUnderTest.logInvoiceFullShift());		
 	}
-} 
+	
+	@Test
+	public void shouldReturnANewParallelArrayOfPayRatesBasedOnGivenBedtime() {
+		int bedtime = 10;
+		
+		int[] result = { 12, 12, 12, 12, 12, 8, 8, 16, 16, 16, 16 };
+		
+		assertArrayEquals(result, classUnderTest.newBedtime(10));
+	} 
+}
 				
 		
 	
