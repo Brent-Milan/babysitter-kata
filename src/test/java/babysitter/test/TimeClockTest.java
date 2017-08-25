@@ -28,17 +28,18 @@ public class TimeClockTest {
 	@Test 
 	public void payRatesArrayContainsCorrectValues() {
 		//arrange
-		int[] payRates = classUnderTest.getPayRates(); 
+		int[] payRates = classUnderTest.newBedtime(9); 
 		//assert
 		assertArrayEquals(new int[] { 12, 12, 12, 12, 8, 8, 8, 16, 16, 16, 16 }, payRates);	 
 	}
 	
 	@Test
 	public void shouldReturnTotalAmountToInvoiceForFullShift() {
-		//act
+		int bedtime = 9;
+		
 		int result = 136;
-		//assert
-		assertEquals(result, classUnderTest.calcFullShift());	
+		
+		assertEquals(result, classUnderTest.calcFullShift(bedtime));	
 	}
 	
 	@Test
@@ -54,10 +55,11 @@ public class TimeClockTest {
 	public void shouldCopyArrayBetweenGivenIndexes() {
 		int startCopyAtIndex = 0;
 		int endCopyAtIndex = 5;
+		int bedtime = 9;
 		
 		int[] result = { 12, 12, 12, 12, 8};
 		
-		assertArrayEquals(result, classUnderTest.copyArrayAtIndexes(startCopyAtIndex, endCopyAtIndex));
+		assertArrayEquals(result, classUnderTest.copyArrayAtIndexes(startCopyAtIndex, endCopyAtIndex, bedtime));
 	}
 	
 	@Test
@@ -101,13 +103,14 @@ public class TimeClockTest {
 	@Test
 	public void shouldGenerateAppendedFileNameAndLogCalculatedInvoiceAmountToHardDrive() {
 		String date = "08.23.2017";
-
+		int bedtime = 9;
+		
 		String appendedFileName = "babysitting-invoice_08.23.2017.text";
 		int invoiceAmount = 136;
 		String result = "08.23.2017: 11 hours, 136 dollars"; 
 		
 		assertEquals(appendedFileName, classUnderTest.generateFileName(date));
-		assertEquals(invoiceAmount, classUnderTest.calcFullShift());
+		assertEquals(invoiceAmount, classUnderTest.calcFullShift(bedtime));
 //		assertEquals(result, classUnderTest.logInvoiceFullShift());		
 	}
 	
@@ -117,7 +120,7 @@ public class TimeClockTest {
 		
 		int[] result = { 12, 12, 12, 12, 12, 8, 8, 16, 16, 16, 16 };
 		
-		assertArrayEquals(result, classUnderTest.newBedtime(10));
+		assertArrayEquals(result, classUnderTest.newBedtime(bedtime));
 	}  
 }
 				

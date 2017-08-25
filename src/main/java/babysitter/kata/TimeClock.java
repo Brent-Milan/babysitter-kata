@@ -41,7 +41,7 @@ public class TimeClock {
 			invoiceAmount += (billableHour * currentPayRate);
 		}
 		return invoiceAmount;
-	}  
+	}   
 
 	public int[] copyArrayAtIndexes(int startCopy, int endCopy, int bedTime) {
 		int[] payRates = newBedtime(bedTime);
