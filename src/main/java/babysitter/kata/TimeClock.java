@@ -80,10 +80,14 @@ public class TimeClock {
 		String appendedFileName = generateFileName(date);
 		int invoiceAmount = calcFullShift();
 		
+		try {
 		PrintWriter fileWriter = new PrintWriter(new FileWriter(appendedFileName));
-		fileWriter.println(date + ": 11 hours, " + invoiceAmount + " dollars");
-		fileWriter.close();
-	}
+				fileWriter.println(date + ": 11 hours, " + invoiceAmount + " dollars");
+				fileWriter.close();				
+			} catch(IOException e) {
+				System.out.println("Cannot write file!"); 
+			} 
+	} 
 	
 /****************************
 	 * Getter Methods
