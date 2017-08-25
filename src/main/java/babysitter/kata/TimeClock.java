@@ -32,7 +32,8 @@ public class TimeClock {
 	}
 	
 	//calculates total invoice amount for a maximum shift length and returns as variable
-	public int calcFullShift() {
+	public int calcFullShift(int bedTime) {
+		int[] payRates = newBedtime(bedTime);
 		int invoiceAmount = 0;
 		for(int index = 0; index < payRates.length; index++) {
 			int billableHour = 1;
@@ -40,10 +41,10 @@ public class TimeClock {
 			invoiceAmount += (billableHour * currentPayRate);
 		}
 		return invoiceAmount;
-	} 
+	}  
 
 	public int[] copyArrayAtIndexes(int startCopy, int endCopy, int bedTime) {
-		int[] payRates = newBedtime(10);
+		int[] payRates = newBedtime(bedTime);
 		int[] arrayCopy = Arrays.copyOfRange(payRates, startCopy, endCopy);
 		return arrayCopy;
 	}  
