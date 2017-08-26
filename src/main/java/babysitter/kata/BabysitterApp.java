@@ -22,6 +22,15 @@ public class BabysitterApp {
 			int userInput2 = input.nextInt();
 			String hardCodeDate = "08.23.2017";
 			
+				while(!isValid(userInput2)) {
+					System.out.println("Invalid input. Please enter a valid bedtime.");
+					System.out.println("Start time must be between 5pm and 4am. Enter as a whole number without \"am\" or \"pm\".");
+					System.out.println("Example: 7\n");
+					
+					System.out.println("What was the starting hour for this job?");
+					userInput2 = input.nextInt();
+				}
+			
 //			TimeClock.logInvoiceFullShift(hardCodeDate, userInput2);
 			System.out.println("\nYour shift invoice amount is " + TimeClock.calcFullShift(userInput2) + ".");
 			System.out.println("A record has been logged in your default text file.");
@@ -30,24 +39,33 @@ public class BabysitterApp {
 			int userInput2 = input.nextInt();
 			String hardCodeDate = "08.23.2017";
 			
+				while(!isValid(userInput2)) {
+					System.out.println("Invalid input. Please enter a valid bedtime.");
+					System.out.println("Start time must be between 5pm and 4am. Enter as a whole number without \"am\" or \"pm\".");
+					System.out.println("Example: 7\n");
+					
+					System.out.println("What was the starting hour for this job?");
+					userInput2 = input.nextInt();
+				}
+			
 			System.out.println("\nWhat was the starting hour for this job?");
 			int userInput3 = input.nextInt();
 			
-			while(!isValid(userInput3)) {
-				System.out.println("Invalid input. Please enter a valid start time.");
-				System.out.println("Start time must be between 5pm and 4am. Enter as a whole number without \"am\" or \"pm\".");
-				System.out.println("Example: 7\n");
-				
-				System.out.println("What was the starting hour for this job?");
-				userInput3 = input.nextInt();
-			}
+				while(!isValid(userInput3)) {
+					System.out.println("Invalid input. Please enter a valid start time.");
+					System.out.println("Start time must be between 5pm and 4am. Enter as a whole number without \"am\" or \"pm\".");
+					System.out.println("Example: 7\n");
+					
+					System.out.println("What was the starting hour for this job?");
+					userInput3 = input.nextInt();
+				}
 			
 			System.out.println("\nWhat was the end hour for this job?");
 			int userInput4 = input.nextInt();
 			
 			System.out.println("\nYour shift invoice amount is " + TimeClock.calcPartialShift(userInput3, userInput4,userInput2) + ".");
 //			System.out.println("A record has been logged in your default text file.");
-		}  
+		}   
 		
 
 	}  //end main

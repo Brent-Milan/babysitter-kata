@@ -23,6 +23,15 @@ public class BabysitterAppTest {
 		boolean result = true;
 		
 		assertEquals(result, BabysitterApp.isValid(userInput));
+	} 
+	
+	@Test 
+	public void shouldReturnFalseForInvalidIntegers() {
+		int userInput = 4;
+		
+		boolean result = false;
+		
+		assertEquals(result, BabysitterApp.isValid(userInput));
 	}
 
 }
