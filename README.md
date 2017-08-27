@@ -6,7 +6,7 @@ This is a programming kata provided by Pillar Technology that I solved using the
 + Approach: 					Test-driven design (TDD)
 + Dependencies:					[Link to raw of build.gradle](https://raw.githubusercontent.com/Brent-Milan/pillar-katas/master/build.gradle)
 
-##**Description**: 
+## **Description**: 
 
 To solve the 'Babysitter' kata, I initially built out two parallel int[] arrays. 
 
@@ -16,13 +16,13 @@ At one point, I started to scrap the design to begin using a hashmap in lieu of 
 
 This kata was done from a test-driven approach where unit tests were constructed (red), were made to pass with production code (green), and improvements were made after (refactor). After the TimeClock class was largely complete, I added a BabysitterApp class to build a simple console menu to accept user input and provide accessibility. This class has its own test file to check the two boolean methods it uses.
 
-##**Ideas for future additions**: 
+## **Ideas for future additions**: 
 
 Could easily add a variable that functions as a multiplier to adjust pay rates for multiple children or special cases like infants. 
 
-##**Scrapped ideas**:
+## **Scrapped ideas**:
 
-Initially had a TimeClock method and associated try/catch/IOException code in the Babysitter App that used PrintWiter and FileWriter to automatically log invoice dates and values to a text file. I decided this was outside the scope of what the exercise asked for + created a lot of ugly clutter to the code. 
+Built a TimeClock logger method and associated try/catch/IOException code in the Babysitter App that used PrintWiter and FileWriter to automatically log invoice dates and values to a text file. I decided this was outside the scope of what the exercise asked for + created a lot of ugly clutter to the code. 
 
 **Note**:
 
