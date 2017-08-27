@@ -13,7 +13,7 @@ public class TimeClock {
 	
 	
 	//populates int[] payRates based on given bedtime
-	public static int[] newBedtime(int newBedtime) {
+	public int[] newBedtime(int newBedtime) {
 		int[] newPayRates = new int[11];
 		int hour = 5;
 		for(int index = 0; index <= 10; index++) {
@@ -32,7 +32,7 @@ public class TimeClock {
 	}
 	
 	//calculates total invoice amount for a maximum shift length and returns as variable
-	public static int calcFullShift(int bedTime) {
+	public int calcFullShift(int bedTime) {
 		int[] payRates = newBedtime(bedTime);
 		int invoiceAmount = 0;
 		for(int index = 0; index < payRates.length; index++) {
@@ -43,13 +43,13 @@ public class TimeClock {
 		return invoiceAmount;
 	}   
 
-	public static int[] copyArrayAtIndexes(int startCopy, int endCopy, int bedTime) {
+	public int[] copyArrayAtIndexes(int startCopy, int endCopy, int bedTime) {
 		int[] payRates = newBedtime(bedTime);
 		int[] arrayCopy = Arrays.copyOfRange(payRates, startCopy, endCopy);
 		return arrayCopy;
 	}  
 	
-	public static int convertToTimelineIndex(int time) {
+	public int convertToTimelineIndex(int time) {
 		switch(time) {
 			case 5: 
 				return 0;
@@ -78,7 +78,7 @@ public class TimeClock {
 		}
 	}  
 	
-	public static int calcPartialShift(int startTime, int endTime, int bedTime) {
+	public int calcPartialShift(int startTime, int endTime, int bedTime) {
 		int startTimeIndex = convertToTimelineIndex(startTime);
 		int endTimeIndex = convertToTimelineIndex(endTime);
 		
@@ -93,12 +93,12 @@ public class TimeClock {
 		return invoiceAmount;
 	} 
 	 
-	public static String generateFileName(String date) {
+	public String generateFileName(String date) {
 		String fileName = "babysitting-invoice_" + date + ".text";
 		return fileName;	
 	}
 	
-	public static void logInvoiceFullShift(String date, int bedtime) throws IOException {
+	public void logInvoiceFullShift(String date, int bedtime) throws IOException {
 		String appendedFileName = generateFileName(date);
 		int invoiceAmount = calcFullShift(bedtime);
 		

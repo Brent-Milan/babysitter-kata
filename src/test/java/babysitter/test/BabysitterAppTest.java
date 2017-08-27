@@ -23,7 +23,7 @@ public class BabysitterAppTest {
 		boolean result = true;
 		
 		assertEquals(result, BabysitterApp.isValid(userInput));
-	} 
+	}  
 	
 	@Test 
 	public void shouldReturnFalseForInvalidIntegers() {
