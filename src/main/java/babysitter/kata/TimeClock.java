@@ -12,7 +12,7 @@ public class TimeClock {
 	private int[] payRates = new int[11];
 	
 	
-	//populates int[] payRates based on given bedtime
+	//populates int[] payRates based on given bedtime (allows user to define bedtime for shift)
 	public int[] newBedtime(int newBedtime) {
 		int[] newPayRates = new int[11];
 		int hour = 5;
