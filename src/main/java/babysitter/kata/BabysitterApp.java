@@ -14,8 +14,8 @@ public class BabysitterApp {
 		System.out.println("\nWelcome to the Babysitter Assistant v1.0 main menu.\n");
 		System.out.println("Please choose from the options below: \n");
 		
-		System.out.println("1. Calculate And Log Invoice for a Full Shift (5pm - 4am)");
-		System.out.println("2. Calculate and Log Invoice for a Partial Shift (data entry)");
+		System.out.println("1. Calculate Invoice for a Full Shift (5pm - 4am)");
+		System.out.println("2. Calculate Invoice for a Partial Shift (data entry)");
 		System.out.println("3. System exit");
 		int userInput = input.nextInt();
 		
@@ -33,7 +33,7 @@ public class BabysitterApp {
 					userInput2 = input.nextInt();
 				}
 			
-			System.out.println("\nYour shift invoice amount is " + clock.calcFullShift(userInput2) + ".");
+			System.out.println("\nYour shift invoice amount is " + clock.calcFullShift(userInput2) + " dollars.");
 			
 		} else if(userInput == 2) {
 			System.out.println("\nWhat is the agreed upon bedtime for this job?");
@@ -75,7 +75,7 @@ public class BabysitterApp {
 					userInput3 = input.nextInt();
 				}
 			
-			System.out.println("\nYour shift invoice amount is " + clock.calcPartialShift(userInput3, userInput4,userInput2) + ".");
+			System.out.println("\nYour shift invoice amount is " + clock.calcPartialShift(userInput3, userInput4,userInput2) + " dollars.");
 			
 		} else if(userInput == 3) {
 			System.out.println("\nThank you for using Babysitter Assistant v1.0.");

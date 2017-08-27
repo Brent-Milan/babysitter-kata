@@ -115,7 +115,6 @@ public class TimeClockTest {
 	}
 	
 	
-	
 	@Test
 	public void shouldReturnANewParallelArrayOfPayRatesBasedOnGivenBedtime() {
 		int bedtime = 10;
