@@ -19,17 +19,17 @@ public class TimeClockTest {
 
 	@Test
 	public void hoursArrayContainsCorrectValues() {
-		//arrange
+		
 		int[] hours = classUnderTest.getHours();
-		//assert
+		
 		assertArrayEquals(new int[] { 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3 }, hours);
 	}
 	
 	@Test 
 	public void payRatesArrayContainsCorrectValues() {
-		//arrange
+		
 		int[] payRates = classUnderTest.newBedtime(9); 
-		//assert
+		
 		assertArrayEquals(new int[] { 12, 12, 12, 12, 8, 8, 8, 16, 16, 16, 16 }, payRates);	 
 	}
 	
@@ -70,12 +70,14 @@ public class TimeClockTest {
 		
 		assertEquals(result, classUnderTest.convertToTimelineIndex(startTime));
 		
+		//checks a different value
 		startTime = 6;
 		
 		result = 1;
 		
 		assertEquals(result, classUnderTest.convertToTimelineIndex(startTime));
 		
+		//edge case that should return 'default' value in switch (99)
 		startTime = 98;
 		
 		result = 99;
