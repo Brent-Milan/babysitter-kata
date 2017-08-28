@@ -11,7 +11,6 @@ public class TimeClock {
 	
 	private int[] payRates = new int[11];
 	
-	
 	//populates int[] payRates based on given bedtime (allows user to define bedtime for shift)
 	public int[] newBedtime(int newBedtime) {
 		int[] newPayRates = new int[11];
@@ -26,7 +25,7 @@ public class TimeClock {
 			} else if(hour >= newBedtime) {
 				newPayRates[index] = 8;
 				hour++;
-			}
+			} 
 		}
 		return newPayRates;
 	}
@@ -41,14 +40,16 @@ public class TimeClock {
 			invoiceAmount += (billableHour * currentPayRate);
 		}
 		return invoiceAmount;
-	}   
-
+	}
+	
+	//used by calcPartialShift() to create a copy of a range in payRates[]
 	public int[] copyArrayAtIndexes(int startCopy, int endCopy, int bedTime) {
 		int[] payRates = newBedtime(bedTime);
 		int[] arrayCopy = Arrays.copyOfRange(payRates, startCopy, endCopy);
 		return arrayCopy;
 	}  
 	
+	//used by calcPartialShift() to return the index location of a given integer
 	public int convertToTimelineIndex(int time) {
 		switch(time) {
 			case 5: 
@@ -78,6 +79,7 @@ public class TimeClock {
 		}
 	}  
 	
+	//calculates the invoice amount for a partial shift. Relies on copyArrayAtIndexes() and convertToTimelineIndex()
 	public int calcPartialShift(int startTime, int endTime, int bedTime) {
 		int startTimeIndex = convertToTimelineIndex(startTime);
 		int endTimeIndex = convertToTimelineIndex(endTime);
@@ -92,29 +94,10 @@ public class TimeClock {
 		} 
 		return invoiceAmount;
 	} 
-	 
-	public String generateFileName(String date) {
-		String fileName = "babysitting-invoice_" + date + ".text";
-		return fileName;	
-	}
 	
-	public void logInvoiceFullShift(String date, int bedtime) throws IOException {
-		String appendedFileName = generateFileName(date);
-		int invoiceAmount = calcFullShift(bedtime);
-		
-		try {
-		PrintWriter fileWriter = new PrintWriter(new FileWriter(appendedFileName));
-				fileWriter.println(date + ": 11 hours, " + invoiceAmount + " dollars");
-				fileWriter.close();				
-			} catch(IOException e) {
-				System.out.println("Cannot write file!"); 
-			} 
-	} 
-	
-	
-/****************************
+	/**********************
 	 * Getter Methods
- ****************************/
+	 ***********************/
 	public int[] getHours() {
 		return hours;
 	}
