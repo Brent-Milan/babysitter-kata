@@ -17,7 +17,7 @@ public class BabysitterAppTest {
 	}
 
 	@Test
-	public void shouldReturnTrueForValidIntegers() {
+	public void shouldReturnTrueForValidStartTimeIntegers() {
 		int userInput = 5;
 		
 		boolean result = true;
@@ -26,12 +26,22 @@ public class BabysitterAppTest {
 	}  
 	
 	@Test 
-	public void shouldReturnFalseForInvalidIntegers() {
+	public void shouldReturnFalseForInvalidStartTimeIntegers() {
 		int userInput = 4;
 		
 		boolean result = false;
 		
 		assertEquals(result, BabysitterApp.isValid(userInput));
 	}
+	
+	@Test
+	public void shouldReturnTrueForValidEndTimeIntegers() {
+		int userInput = 6;
+		
+		boolean result = true;
+		
+		assertEquals(result, BabysitterApp.isValidEnd(userInput));
+	} 
 
 }
+	
