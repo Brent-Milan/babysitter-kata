@@ -15,6 +15,11 @@ public class TimeClock {
 	public int[] newBedtime(int newBedtime) {
 		int[] newPayRates = new int[11];
 		int hour = 5;
+		
+		if(newBedtime == 1) {
+			newBedtime = 13;
+		}
+		
 		for(int index = 0; index <= 10; index++) {
 			if(hour >= 12) {
 				newPayRates[index] = 16;

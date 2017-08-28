@@ -80,9 +80,9 @@ public class BabysitterApp {
 			
 				/*
 				 * Important! This checks whether the user entered a full shift (5pm - 4am) under the partial shift option.
-				 * This would normally result in an incorrect calculation of the invoice amount, because the calcPartialShift()
+				 * Unchecked, this would result in an incorrect calculation of the invoice amount, because the calcPartialShift()
 				 * method uses Arrays.copyOfRange() resulting in index 10 being omitted. Rather than kick the user back to the main menu,
-				 * this stealthily uses the proper calculation for this input. 
+				 * this stealthily uses the proper calculation for a full shift scenario. 
 				 * */
 				if(userInput3 == 5 && userInput4 == 3) {
 					System.out.println("\nYour invoice amount for this shift is " + clock.calcFullShift(userInput2) + " dollars.");
