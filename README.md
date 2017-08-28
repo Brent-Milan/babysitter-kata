@@ -24,7 +24,7 @@ Could easily add a variable that functions as a multiplier to adjust pay rates f
 
 Built a TimeClock logger method and associated try/catch/IOException code in the Babysitter App that used PrintWiter and FileWriter to automatically log invoice dates and values to a text file. I decided this was outside the scope of what the exercise asked for + created a lot of ugly clutter to the code. 
 
-**Note**:
+**Note**: run ./gradlew to test
 
-This project was initially setup with SpringInitializr + Gradle to setup my files/directories quickly. It has some Spring-related dependencies listed that it doesn't actually require to run. If you have JUnit 4, you're good to go. 
+
 

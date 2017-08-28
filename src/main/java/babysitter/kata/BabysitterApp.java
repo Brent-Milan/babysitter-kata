@@ -61,8 +61,7 @@ public class BabysitterApp {
 					System.out.println("What was the start time for this job?");
 					userInput3 = input.nextInt();
 				}
-				
-			
+					
 			System.out.println("\nWhat was the end time for this job?");
 			int userInput4 = input.nextInt();
 			
