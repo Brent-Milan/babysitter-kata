@@ -64,7 +64,6 @@ public class BabysitterApp {
 				
 			
 			System.out.println("\nWhat was the end time for this job?");
-//			System.out.println("(Hours are charged in full. If the last hour you worked was 3-4am, enter 3.)");
 			int userInput4 = input.nextInt();
 			
 				while(!isValidEnd(userInput4)) {
@@ -98,7 +97,7 @@ public class BabysitterApp {
 		return false;
 	}
 
-	//validates user input (must be an integer associated with hours[] in TimeClock class
+	//validates user input (must be an integer associated with hours[] in TimeClock class AND a valid start time or bed time)
 	public static boolean isValid(int userInput) {
 		if(userInput == 5 || userInput == 6 || userInput == 7 || userInput == 8 || userInput == 9 || userInput == 10 || userInput == 11 || 
 				userInput == 12 || userInput == 1 || userInput ==  2 || userInput == 3) {
@@ -108,6 +107,7 @@ public class BabysitterApp {
 		}
 	} 
 	
+	//validates user input (must be an integer associated with hours[] AND a valid end time)
 	public static boolean isValidEnd(int userInput) {
 		if(userInput == 6 || userInput == 7 || userInput == 8 || userInput == 9 || userInput == 10 || userInput == 11 || 
 				userInput == 12 || userInput == 1 || userInput ==  2 || userInput == 3 || userInput == 4) {
