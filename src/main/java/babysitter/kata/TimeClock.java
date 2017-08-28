@@ -18,6 +18,8 @@ public class TimeClock {
 		
 		if(newBedtime == 1) {
 			newBedtime = 13;
+		} else if(newBedtime == 2) {
+			newBedtime = 14;
 		}
 		
 		for(int index = 0; index <= 10; index++) {

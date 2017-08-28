@@ -96,8 +96,16 @@ public class TimeClockTest {
 	}
 	
 	@Test
-	public void shouldReturnExpectedInvoiceAmountForFullShiftWithBedTimeOf1() {
+	public void shouldReturnExpectedInvoiceAmountForFullShiftWithBedtimeOf1() {
 		int bedTime = 1;
+		int result = 148;
+		
+		assertEquals(result, classUnderTest.calcFullShift(bedTime));
+	}
+	
+	@Test
+	public void shouldReturnExpectedInvoiceAmountForFullShiftWithBedtimeOf2() {
+		int bedTime = 2;
 		int result = 148;
 		
 		assertEquals(result, classUnderTest.calcFullShift(bedTime));
